@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum GoalStatus {
+  ACTIVE
+  COMPLETED
+  PAUSED
+}
+
+model User {
+  id           String    @id @default(cuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  workouts     Workout[]
+  goals        Goal[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Workout {
+  id        String     @id @default(cuid())
+  title     String
+  date      DateTime
+  notes     String?    @db.Text
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exercises Exercise[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@index([userId, date])
+}
+
+model Exercise {
+  id        String   @id @default(cuid())
+  name      String
+  sets      Int?
+  reps      Int?
+  weight    Float?
+  duration  Int?
+  calories  Int?
+  workoutId String
+  workout   Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([workoutId])
+}
+
+model Goal {
+  id           String     @id @default(cuid())
+  title        String
+  type         String
+  targetValue  Float
+  currentValue Float      @default(0)
+  unit         String
+  status       GoalStatus @default(ACTIVE)
+  deadline     DateTime?
+  userId       String
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@index([userId, status])
+}
