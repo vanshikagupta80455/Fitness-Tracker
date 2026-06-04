@@ -25,9 +25,9 @@ export default async function DashboardPage() {
     })
   ]);
 
-  const exerciseCount = workouts.reduce((total: number, workout) => total + workout.exercises.length, 0);
+  const exerciseCount = workouts.reduce((total: number, workout : any) => total + workout.exercises.length, 0);
   const calories = workouts.reduce(
-    (total: number, workout) => total + workout.exercises.reduce((sum: number, exercise) => sum + (exercise.calories ?? 0), 0),
+    (total: number, workout : any) => total + workout.exercises.reduce((sum: number, exercise : any) => sum + (exercise.calories ?? 0), 0),
     0
   );
 
