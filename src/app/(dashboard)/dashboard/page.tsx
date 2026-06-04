@@ -1,6 +1,7 @@
 import { Activity, Flame, Target, Timer } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
 function formatDate(date: Date) {
   return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(date);
@@ -9,20 +10,24 @@ function formatDate(date: Date) {
 export default async function DashboardPage() {
   const user = await getCurrentUser();
 
+  if (!user) {
+    redirect("/login");
+  }
+
   const [workoutCount, activeGoals, workouts] = await Promise.all([
-    prisma.workout.count({ where: { userId: user!.id } }),
-    prisma.goal.count({ where: { userId: user!.id, status: "ACTIVE" } }),
+    prisma.workout.count({ where: { userId: user.id } }),
+    prisma.goal.count({ where: { userId: user.id, status: "ACTIVE" } }),
     prisma.workout.findMany({
-      where: { userId: user!.id },
+      where: { userId: user.id },
       include: { exercises: true },
       orderBy: { date: "desc" },
       take: 5
     })
   ]);
 
-  const exerciseCount = workouts.reduce((total, workout) => total + workout.exercises.length, 0);
+  const exerciseCount = workouts.reduce((total: number, workout) => total + workout.exercises.length, 0);
   const calories = workouts.reduce(
-    (total, workout) => total + workout.exercises.reduce((sum, exercise) => sum + (exercise.calories ?? 0), 0),
+    (total: number, workout) => total + workout.exercises.reduce((sum: number, exercise) => sum + (exercise.calories ?? 0), 0),
     0
   );
 
@@ -78,7 +83,7 @@ export default async function DashboardPage() {
                       {workout.exercises.length} exercises
                     </span>
                     <span className="rounded-[8px] bg-wheat px-3 py-1 text-ink/70">
-                      {workout.exercises.reduce((sum, exercise) => sum + (exercise.calories ?? 0), 0)} cal
+                      {workout.exercises.reduce((sum: number, exercise) => sum + (exercise.calories ?? 0), 0)} cal
                     </span>
                   </div>
                 </div>
