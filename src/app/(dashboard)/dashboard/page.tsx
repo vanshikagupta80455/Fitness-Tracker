@@ -3,6 +3,30 @@ import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
+interface ExerciseType {
+  id: string;
+  name: string;
+  sets: number | null;
+  reps: number | null;
+  weight: number | null;
+  duration: number | null;
+  calories: number | null;
+  workoutId: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+interface WorkoutType {
+  id: string;
+  title: string;
+  date: Date;
+  notes: string | null;
+  userId: string;
+  exercises: ExerciseType[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 function formatDate(date: Date) {
   return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(date);
 }
@@ -25,9 +49,11 @@ export default async function DashboardPage() {
     })
   ]);
 
-  const exerciseCount = workouts.reduce((total: number, workout : any) => total + workout.exercises.length, 0);
-  const calories = workouts.reduce(
-    (total: number, workout : any) => total + workout.exercises.reduce((sum: number, exercise : any) => sum + (exercise.calories ?? 0), 0),
+  const typedWorkouts = workouts as unknown as WorkoutType[];
+
+  const exerciseCount = typedWorkouts.reduce((total: number, workout) => total + workout.exercises.length, 0);
+  const calories = typedWorkouts.reduce(
+    (total: number, workout) => total + workout.exercises.reduce((sum: number, exercise) => sum + (exercise.calories ?? 0), 0),
     0
   );
 
@@ -66,13 +92,13 @@ export default async function DashboardPage() {
         <div className="rounded-[8px] border border-ink/10 bg-white p-5 shadow-sm">
           <div className="flex items-center justify-between gap-4">
             <h2 className="text-lg font-semibold text-ink">Recent workouts</h2>
-            <span className="text-sm text-ink/50">{workouts.length} shown</span>
+            <span className="text-sm text-ink/50">{typedWorkouts.length} shown</span>
           </div>
           <div className="mt-4 divide-y divide-ink/10">
-            {workouts.length === 0 ? (
+            {typedWorkouts.length === 0 ? (
               <p className="py-8 text-sm text-ink/60">No workouts yet. Add your first session from Workouts.</p>
             ) : (
-              workouts.map((workout) => (
+              typedWorkouts.map((workout) => (
                 <div key={workout.id} className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="font-semibold text-ink">{workout.title}</p>
