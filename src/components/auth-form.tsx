@@ -27,21 +27,32 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
             password: String(formData.get("password") ?? "")
           };
 
-    const response = await fetch(`/api/auth/${mode}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-    const data = await response.json();
+    try {
+      const response = await fetch(`/api/auth/${mode}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
 
-    if (!response.ok) {
-      setError(data.error ?? "Something went wrong.");
+      let data;
+      try {
+        data = await response.json();
+      } catch {
+        throw new Error("Server returned an invalid response. Please ensure your database is migrated.");
+      }
+
+      if (!response.ok) {
+        setError(data.error ?? "Something went wrong.");
+        setLoading(false);
+        return;
+      }
+
+      router.push("/dashboard");
+      router.refresh();
+    } catch (err: any) {
+      setError(err.message || "Something went wrong.");
       setLoading(false);
-      return;
     }
-
-    router.push("/dashboard");
-    router.refresh();
   }
 
   const Icon = mode === "signup" ? UserPlus : LogIn;
