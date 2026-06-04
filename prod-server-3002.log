@@ -1,0 +1,10 @@
+
+> fitness-tracker@0.1.0 start
+> next start --port 3002
+
+   ▲ Next.js 15.5.19
+   - Local:        http://localhost:3002
+   - Network:      http://192.168.137.119:3002
+
+ ✓ Starting...
+ ✓ Ready in 765ms

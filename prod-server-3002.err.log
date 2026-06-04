@@ -1,0 +1,12 @@
+ ⨯ TypeError: Cannot read properties of null (reading 'id')
+    at l (C:\Users\Sahil\Documents\fitness\.next\server\app\(dashboard)\dashboard\page.js:1:3560) {
+  digest: '3452173682'
+}
+ ⨯ TypeError: Cannot read properties of null (reading 'id')
+    at l (C:\Users\Sahil\Documents\fitness\.next\server\app\(dashboard)\dashboard\page.js:1:3560) {
+  digest: '3452173682'
+}
+ ⨯ TypeError: Cannot read properties of null (reading 'id')
+    at l (C:\Users\Sahil\Documents\fitness\.next\server\app\(dashboard)\dashboard\page.js:1:3560) {
+  digest: '3452173682'
+}

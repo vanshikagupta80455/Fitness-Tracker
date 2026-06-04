@@ -1,0 +1,33 @@
+
+> fitness-tracker@0.1.0 dev
+> next dev --port 3001
+
+   ▲ Next.js 15.5.19
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.137.119:3001
+
+ ✓ Starting...
+ ✓ Ready in 2.6s
+ ○ Compiling /login ...
+ ✓ Compiled /login in 4.8s (629 modules)
+ GET /login 200 in 5371ms
+ GET /login 200 in 84ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.6s (639 modules)
+ GET / 307 in 3759ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 2.3s (713 modules)
+ GET /dashboard 307 in 2825ms
+ GET /login 200 in 139ms
+ GET /login 200 in 105ms
+ ○ Compiling /_error ...
+ GET / 500 in 838ms
+ GET / 200 in 727ms
+ ✓ Compiled /_error in 2.6s (994 modules)
+ GET /login 500 in 2577ms
+ GET /login 500 in 370ms
+ GET /login 500 in 369ms
+ GET /login 500 in 343ms
+   Reload env: .env
+ ✓ Compiled in 4.2s (888 modules)
+[?25h

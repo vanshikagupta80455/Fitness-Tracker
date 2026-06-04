@@ -1,0 +1,131 @@
+ ⨯ TypeError: Cannot read properties of null (reading 'id')
+    at DashboardPage (src\app\(dashboard)\dashboard\page.tsx:13:51)
+  11 |
+  12 |   const [workoutCount, activeGoals, workouts] = await Promise.all([
+> 13 |     prisma.workout.count({ where: { userId: user!.id } }),
+     |                                                   ^
+  14 |     prisma.goal.count({ where: { userId: user!.id, status: "ACTIVE" } }),
+  15 |     prisma.workout.findMany({
+  16 |       where: { userId: user!.id }, {
+  digest: '1705766511'
+}
+ ⨯ Error: Cannot find module './543.js'
+Require stack:
+- C:\Users\Sahil\Documents\fitness\.next\server\webpack-runtime.js
+- C:\Users\Sahil\Documents\fitness\.next\server\app\(dashboard)\dashboard\page.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\require.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\load-components.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\utils.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\options.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\index.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Sahil\Documents\fitness\.next\server\app\page.js:2:15718)
+    at Object.<anonymous> (C:\Users\Sahil\Documents\fitness\.next\server\app\page.js:2:15767) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './543.js'
+Require stack:
+- C:\Users\Sahil\Documents\fitness\.next\server\webpack-runtime.js
+- C:\Users\Sahil\Documents\fitness\.next\server\app\(dashboard)\dashboard\page.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\require.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\load-components.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\utils.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\options.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\index.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Sahil\Documents\fitness\.next\server\app\page.js:2:15718)
+    at Object.<anonymous> (C:\Users\Sahil\Documents\fitness\.next\server\app\page.js:2:15767) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './543.js'
+Require stack:
+- C:\Users\Sahil\Documents\fitness\.next\server\webpack-runtime.js
+- C:\Users\Sahil\Documents\fitness\.next\server\pages\_document.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\require.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\load-components.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\utils.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\options.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\index.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Sahil\Documents\fitness\.next\server\app\(auth)\login\page.js:2:7432)
+    at Object.<anonymous> (C:\Users\Sahil\Documents\fitness\.next\server\app\(auth)\login\page.js:2:7486) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/login'
+}
+ ⨯ Error: Cannot find module './543.js'
+Require stack:
+- C:\Users\Sahil\Documents\fitness\.next\server\webpack-runtime.js
+- C:\Users\Sahil\Documents\fitness\.next\server\pages\_document.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\require.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\load-components.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\utils.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\options.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\index.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Sahil\Documents\fitness\.next\server\app\(auth)\login\page.js:2:7432)
+    at Object.<anonymous> (C:\Users\Sahil\Documents\fitness\.next\server\app\(auth)\login\page.js:2:7486) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/login'
+}
+ ⨯ Error: Cannot find module './543.js'
+Require stack:
+- C:\Users\Sahil\Documents\fitness\.next\server\webpack-runtime.js
+- C:\Users\Sahil\Documents\fitness\.next\server\pages\_document.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\require.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\load-components.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\utils.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\options.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\index.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Sahil\Documents\fitness\.next\server\app\(auth)\login\page.js:2:7432)
+    at Object.<anonymous> (C:\Users\Sahil\Documents\fitness\.next\server\app\(auth)\login\page.js:2:7486) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/login'
+}
+ ⨯ Error: Cannot find module './543.js'
+Require stack:
+- C:\Users\Sahil\Documents\fitness\.next\server\webpack-runtime.js
+- C:\Users\Sahil\Documents\fitness\.next\server\pages\_document.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\require.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\load-components.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\utils.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\options.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\swc\index.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Sahil\Documents\fitness\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Sahil\Documents\fitness\.next\server\app\(auth)\login\page.js:2:7432)
+    at Object.<anonymous> (C:\Users\Sahil\Documents\fitness\.next\server\app\(auth)\login\page.js:2:7486) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/login'
+}

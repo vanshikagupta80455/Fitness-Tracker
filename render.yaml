@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: fitness-tracker
+    runtime: node
+    buildCommand: npx prisma generate && npm run build
+    startCommand: npx prisma db push && npm run start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: fitness-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: NEXT_PUBLIC_APP_NAME
+        value: Fitness Tracker
+      - key: NODE_ENV
+        value: production
+
+databases:
+  - name: fitness-db
+    databaseName: fitness_tracker
+    plan: free
